@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Knapsack() {
         // Private ArrayList<> variable that keeps Knapsack's items
