@@ -30,6 +30,7 @@ public class Algorithm() {
         // Private static int variable that keeps mutation rate
         private static int mutationRate;
         
+        // Return Algorithm's initial items
         private static final ArrayList<Item> getInitialItems() {
                 return initialItems();
         }
