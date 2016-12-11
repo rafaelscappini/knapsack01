@@ -19,8 +19,17 @@ public class Knapsack() {
                 this.weight = 0;
         }
         
-        // Create a new Knapsack 
-        public Knapsack() {
+        // Create a new Knapsack with defined items
+        // Mutation could be applyied to this Knapsack
+        public Knapsack(ArrayList<Item> items, boolean mutation) {
+                this.items = items;
+                if (mutation) {
+                        this.mutate();
+                } else {
+                        while (validate) {
+                                Collections.shuffle(this.items);
+                        }
+                }
         }
         
         // Return Knapsack's items
@@ -56,5 +65,38 @@ public class Knapsack() {
         // Inform Knapsack's weight
         public void setWeight(int weight) {
                 this.weight = weight;
+        }
+        
+        // Validate Knapsack's items verifying their weights and cromossome size
+        public boolean validate() {
+                int count  = 0;
+                int weight = 0;
+                for (int i = 0; i < this.getItems().size(); i++) {
+                        if (weight + this.getItem(i).getWeight() > Algorithm.getMaxWeight()) {
+                                return true;
+                        } else if (weight + this.getItem(i).getWeight() <= Algorithm.getMaxWeight()) {
+                                count++;
+                                weight += this.getItem(i).getWeight();
+                                if (weight == Algorithm.getMaxWeight()) {
+                                        if (count == Algorithm.getCromossomeSize()) {
+                                                for (int j = (i+1); j < this.getItems().size(); j++) {
+                                                        this.getItems().set(j, new Item());
+                                                }
+                                                return false;
+                                        } else {
+                                                return true;
+                                        }
+                                }
+                        }
+                }
+        }
+        
+        // Apply mutation to a specific Item on Knapsack's items
+        public void mutate() {
+                Random r = new Random();
+                if (r.nextInt() <= Algoprithm.getMutationRate()) {
+                        int position = r.nextInt(this.getItems().size());
+                        this.getItem(position).mutate();
+                }
         }
 }
