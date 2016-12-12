@@ -2,7 +2,7 @@ package entity;
 
 import java.util.Random;
 
-public class Item() {
+public class Item {
       // Private integer variable that keeps Item's value
       private int value;
       
