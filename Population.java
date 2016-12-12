@@ -84,5 +84,27 @@ public class Population() {
                 while (B) {
                         B = false;
                         for (int i = 0; i < this.getSize() - 1; i++) {
-                                if (
+                                if (this.getKnapsack(i).getWeight() > this.getKnapsack(i+1).getWeight()) {
+                                        Knapsack k          = this.getKnapsack(i);
+                                        this.knapsacks[i]   = this.getKnapsack(i+1);
+                                        this.knapsacks[i+1] = k;
+                                        b = true;
+                                }
+                        }
+                }
+                B = true;
+                while (B) {
+                        B = false;
+                        for (int i = 0; i < this.getSize() - 1; i++) {
+                                if (this.getKnapsack(i).getWeight == this.getKnapsack(i+1).getWeight()) {
+                                        if (this.getKnapsack(i).getValue() > this.getKnapsack(i+1).getValue()) {
+                                                Knapsack k          = this.getKnapsack(i);
+                                                this.knapsacks[i]   = this.getKnapsack(i+1);
+                                                this.knapsacks[i+1] = k;
+                                                b = true;
+                                        }
+                                }
+                        }
+                }
+        }
 }
