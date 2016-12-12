@@ -1,8 +1,10 @@
 package entity;
 
-public class Algorithm() {
+import java.util.ArrayList;
+
+public class Algorithm {
         // Private static final ArrayList<Item> variable that keeps Problem's initial items
-        privaye static final ArrayList<Item> initialItems() {
+        private static final ArrayList<Item> initialItems() {
                 ArrayList<Item> items = new ArrayList<Item>();
                 items.add(new Item(3,4));
                 items.add(new Item(5,2));
@@ -50,7 +52,7 @@ public class Algorithm() {
         
         // Return Algorithm's max weight
         private static int getMaxWeight() {
-                return maxWeigth;
+                return maxWeight;
         }
         
         // Inform Algorithm's max weight
