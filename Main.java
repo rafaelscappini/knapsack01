@@ -10,6 +10,14 @@ public class Main() {
                 System.out.println("Population created successfully!\n");
         }
         
+        // Elitism method (once, returns fittest knapsack)
+        public static Knapsack elitism(Population population) {
+                System.out.println("Aplying elitism...");
+                population.order();
+                return population.getKnapsack(0);
+                System.out.println("Elitism aplyied successfully!\n");
+        }
+        
         // Evaluate population
         public static void evaluatePopulation() {
                 System.out.println("Evaluating population...");
@@ -29,6 +37,7 @@ public class Main() {
         
         // Roulette Selection method
         public static Knapsack[] rouletteSelection(Population population) {
+                System.out.println("Choosing knapsacks by roulette selection...");
                 Knapsack[] selected = new Knapsack[2];
                 population.evaluate();
                 int T = population.getValue();
@@ -43,11 +52,13 @@ public class Main() {
                                 }
                         }
                 }
+                System.out.println("Knapsacks chosen successfully!\n");
                 return selected;
         }
         
-        // Tour selection method
+        // Tour selection method (twice, choose two different knapsacks and return the fittest or not) 
         public static Knapsack[] tourSelection(Population population) {
+                System.out.println("Choosing knapsacks by tour selection...");
                 Knapsack[] selected = new Knapsack[2];
                 double D = 0.75;
                 Random r = new Random();
@@ -72,6 +83,7 @@ public class Main() {
                                 }
                         }
                 }
+                System.out.println("Knapsacks chosen successfully!\n");
                 return selected;
         }
 }
