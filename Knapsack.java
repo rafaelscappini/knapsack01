@@ -68,6 +68,16 @@ public class Knapsack() {
                 this.weight = weight;
         }
         
+        // Calculate Knapsack's value and weight
+        public void evaluate() {
+                this.value  = 0;
+                this.weight = 0;
+                for (int i = 0; i < this.getItems().size(); i++) {
+                        this.value  += this.getItem(i).getValue();
+                        this.weight += this.getItem(i).getWeight();
+                }
+        }
+        
         // Validate Knapsack's items verifying their weights and cromossome size
         public boolean validate() {
                 int count  = 0;
