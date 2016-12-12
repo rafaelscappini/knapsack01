@@ -1,6 +1,6 @@
 package entity;
 
-public class Population() {
+public class Population {
         // Private array of Knapsack that keeps Population's knapsack
         private Knapsack[] knapsacks;
         
@@ -18,7 +18,7 @@ public class Population() {
                 this.size      = size;
                 this.knapsacks = new Knapsack[size];
                 for (int i = 0; i < size; i++) {
-                        this.knapsacks[i] = new Knapsack(Algorithm.getInitialItems, false);
+                        this.knapsacks[i] = new Knapsack(Algorithm.getInitialItems(), false);
                 }
         }
         
@@ -88,7 +88,7 @@ public class Population() {
                                         Knapsack k          = this.getKnapsack(i);
                                         this.knapsacks[i]   = this.getKnapsack(i+1);
                                         this.knapsacks[i+1] = k;
-                                        b = true;
+                                        B = true;
                                 }
                         }
                 }
@@ -96,12 +96,12 @@ public class Population() {
                 while (B) {
                         B = false;
                         for (int i = 0; i < this.getSize() - 1; i++) {
-                                if (this.getKnapsack(i).getWeight == this.getKnapsack(i+1).getWeight()) {
+                                if (this.getKnapsack(i).getWeight() == this.getKnapsack(i+1).getWeight()) {
                                         if (this.getKnapsack(i).getValue() > this.getKnapsack(i+1).getValue()) {
                                                 Knapsack k          = this.getKnapsack(i);
                                                 this.knapsacks[i]   = this.getKnapsack(i+1);
                                                 this.knapsacks[i+1] = k;
-                                                b = true;
+                                                B = true;
                                         }
                                 }
                         }
