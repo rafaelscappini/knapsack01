@@ -51,7 +51,7 @@ public class Main() {
                 Knapsack[] selected = new Knapsack[2];
                 double D = 0.75;
                 Random r = new Random();
-                for (int i = 0; i < population.getSize(); i++) {
+                for (int i = 0; i < 2; i++) {
                         Knapsack k1 = population.getKnapsack(r.nextInt(population.getSize()));
                         Knapsack k2 = population.getKnapsack(r.nextInt(population.getSize()));
                         while (k1.equals(k2)) {
