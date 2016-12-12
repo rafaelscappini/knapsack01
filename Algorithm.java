@@ -30,6 +30,9 @@ public class Algorithm() {
         // Private static int variable that keeps mutation rate
         private static int mutationRate;
         
+        // Private static int variable that keeps Population size
+        private static int populationSize;
+        
         // Return Algorithm's initial items
         private static final ArrayList<Item> getInitialItems() {
                 return initialItems();
@@ -60,8 +63,18 @@ public class Algorithm() {
                 return mutationRate;
         }
         
-        // Inform Algorithm'smutation rate
+        // Inform Algorithm's mutation rate
         private static void setMutationRate(int mutationRate) {
                 Algorithm.mutationRate = mutationRate;
         }
+        
+        // Return Algorithm's population size
+        private static int getPopulationSize() {
+                return populationSize;
+        }
+        
+        // Inform Algorithm's population size
+        public static void setPopulationSize(int populationSize) {
+                Algorithm.populationSize = populationSize;
+        }                
 }
